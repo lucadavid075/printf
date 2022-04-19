@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 		{"o", _print_octal},
 		{"x", _print_hex_l},
 		{"X", _print_hex_u},
-		{"p", _print_address},{"R", _print_rot13},
+		{"p", _print_address},
+		{"R", _print_rot13},
 		{NULL, NULL}
 
 	};
