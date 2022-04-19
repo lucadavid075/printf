@@ -23,3 +23,4 @@ int _printf(const char *format, ...)
         count = get_print(format, argument, ap);                         
         va_end(ap);                                                      
         return (count);                                                  
+}
