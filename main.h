@@ -36,6 +36,7 @@ int _print_binary(va_list ap);
 int _print_hex_l(va_list ap);
 int _print_hex_u(va_list ap);
 int _print_address(va_list ap);
+int get_flag(char s, flags_t *f);
 
 /* converter prototypes */
 char *convertadd(unsigned long int num, int base, int lowercase);
@@ -43,4 +44,18 @@ char *convert(unsigned int num, int base);
 
 /* get print prototype */
 int get_print(const char *format, print_type argument[], va_list ap);
+
+/**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flags_t;
 #endif /* _MAIN_H_ */
