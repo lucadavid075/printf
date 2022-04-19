@@ -36,7 +36,6 @@ int _print_binary(va_list ap);
 int _print_hex_l(va_list ap);
 int _print_hex_u(va_list ap);
 int _print_address(va_list ap);
-int print_S_string(va_list ap);
 
 /* converter prototypes */
 char *convertadd(unsigned long int num, int base, int lowercase);

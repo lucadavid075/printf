@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 		{"p", _print_address},
 		{"R", _print_rot13},
 		{"r", _print_reverse},
-		{"s", _print_S_string},
 		{NULL, NULL}
 
 	};
