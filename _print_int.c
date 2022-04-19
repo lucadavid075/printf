@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _print_int - Prints an integer
  * @ap: Action pointer
