@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 		{"d", _print_int},
                 {"i", _print_int},
 		{NULL, NULL}
+
 	};
 	va_list ap;
 	int count = 0;
