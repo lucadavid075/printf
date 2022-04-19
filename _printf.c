@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
  * _printf - function that replicates what printf does
@@ -14,6 +14,13 @@ int _printf(const char *format, ...)
 		{"%", _print_percent},
 		{"d", _print_int},
 		{"i", _print_int},
+		{"r", _print_reverse},
+		{"R", _print_rot13},
+		{"b", _print_binary},
+		{"u", _print_unsigned},
+		{"o", _print_octal},
+		{"x", _print_hex_l},
+		{"X", _print_hex_u},
 		{NULL, NULL}
 	};
 	va_list ap;
