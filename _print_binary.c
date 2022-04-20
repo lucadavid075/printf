@@ -2,24 +2,18 @@
 
 /**
  * _print_binary - function that prints a binary number from int
- * @ap: the action pointer
- *
- * Return: the binary number
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct that determines
+ * if a flag is passed to _printf
+ * Description: the function calls convert() which in turns converts the input
+ * number into the correct base and returns it as a string
+ * Return: the number of char printed
  */
-
-int _print_binary(va_list ap)
+int _print_binary(va_list l, flags_t *f)
 {
-	int i;
-	unsigned int n;
-	char *s;
-	int count = 0;
+	unsigned int num = va_arg(l, unsigned int);
+	char *str = convert(num, 2, 0);
 
-	n = va_arg(ap, unsigned int);
-	s = convert(n, 2);
-
-	if (!n)
-		count += _putchar('0');
-	for (i = 0; s[i] && n; i++)
-		count += _putchar(s[i]);
-	return (count);
+	(void)f;
+	return (_puts(str));
 }

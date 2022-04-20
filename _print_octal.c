@@ -2,24 +2,21 @@
 
 /**
  * _print_octal - Prints an octal number
- * @ap: Action pointer
- *
- * Return: Number of digits
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct that determines
+ * if a flag is passed to _printf
+ * Description: the function calls convert() which in turns converts the input
+ * number into the correct base and returns it as a string
+ * Return: the number of char printed
  */
-
-int _print_octal(va_list ap)
+int _print_octal(va_list l, flags_t *f)
 {
-	int i;
-	unsigned int n;
-	char *s;
+	unsigned int num = va_arg(l, unsigned int);
+	char *str = convert(num, 8, 0);
 	int count = 0;
 
-	n = va_arg(ap, unsigned int);
-	s = convert(n, 8);
-
-	for (i = 0; s[i]; i++)
-	{
-		count += _putchar(s[i]);
-	}
+	if (f->hash == 1 && str[0] != '0')
+		count += _putchar('0');
+	count += _puts(str);
 	return (count);
 }
