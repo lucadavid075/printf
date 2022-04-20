@@ -11,6 +11,7 @@
 int get_flag(char s, flags_t *f)
 {
 	int i = 0;
+	int modifier = 1;
 
 	switch (s)
 	{
@@ -26,7 +27,17 @@ int get_flag(char s, flags_t *f)
 			f->hash = 1;
 			i = 1;
 			break;
+		case '-':
+			f->minus = 1;
+			i = 1;
+			break;
+		case '0':
+			f->zero = 1;
+			i = 1;
+			break;
+		default:
+			modifier = 0;
+			i = 0;
 	}
-
 	return (i);
 }
