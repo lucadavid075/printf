@@ -2,23 +2,24 @@
 
 /**
  * _print_address - prints address of input in hexa format
- * @ap: va_list arguments from _printf
- *
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
  * Return: number of char printed
  */
-
-int _print_address(va_list ap)
+int _print_address(va_list l, flags_t *f)
 {
-	unsigned long int n;
-	char *s;
-	int count = 0;
+	char *str;
+	unsigned long int p = va_arg(l, unsigned long int);
 
-	n = va_arg(ap, unsigned long int);
+	register int count = 0;
 
-	if (!n)
-		count += _putchar('0');
-	s = convertadd(n, 16, 1);
+	(void)f;
+
+	if (!p)
+		return (_puts("(nil)"));
+	str = convert(p, 16, 1);
 	count += _puts("0x");
-	count += _puts(s);
+	count += _puts(str);
 	return (count);
 }

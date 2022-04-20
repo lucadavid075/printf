@@ -1,24 +1,24 @@
 #include "main.h"
 
 /**
- * _print_reverse - Prints reversed string
- * @ap: Action pointer
- *
- * Return: Number of digits
+ * _print_reverse - prints a string in reverse
+ * @l: argument from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: length of the printed string
  */
-int _print_reverse(va_list ap)
+int _print_reverse(va_list l, flags_t *f)
 {
-	int len = 0;
-	int i;
-	char *s;
+	register short len = 0, j;
+	char *s = va_arg(l, char *);
 
-	s = va_arg(ap, char *);
+	(void)f;
 	if (!s)
 		s = "(null)";
 	while (s[len])
 		++len;
-	i = len - 1;
-	while (i >= 0)
-		_putchar(s[i--]);
+	j = len - 1;
+	while (j >= 0)
+		_putchar(s[j--]);
 	return (len);
 }

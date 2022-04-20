@@ -1,27 +1,27 @@
 #include "main.h"
 
 /**
- * convert - function that converts our int to hex, octal, or binary
- * @num: the number passed into the function
- * @base: the base to convert to
- *
- * Return: the convertednumber of a certain base
+ * convert - converts number and base into string
+ * @num: input number
+ * @base: input base
+ * @lowercase: flag if hexa values need to be lowercase
+ * Return: result string
  */
-
-char *convert(unsigned int num, int base)
+char *convert(unsigned long int num, int base, int lowercase)
 {
-	const char Representation[] = "0123456789ABCDEF";
+	static char *rep;
 	static char buffer[50];
 	char *ptr;
 
+	rep = (lowercase)
+		? "0123456789abcdef"
+		: "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
-
-	while (num != 0)
-	{
-		*--ptr = Representation[num % base];
+	do {
+		*--ptr = rep[num % base];
 		num /= base;
-	}
+	} while (num != 0);
 
 	return (ptr);
 }

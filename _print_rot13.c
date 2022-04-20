@@ -2,32 +2,32 @@
 
 /**
  * _print_rot13 - Encode a string using rot13
- * @ap: Action pointer
- *
- * Return: Length of string
+ * @l: Action pointer
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: length of the printed string
  */
-int _print_rot13(va_list ap)
+int _print_rot13(va_list l, flags_t *f)
 {
 	int i, j;
-	char alphabet[] = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
-	char rAlphbet[] = "NnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMm";
-	char *s;
+	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *s = va_arg(l, char *);
 
-	s = va_arg(ap, char *);
-	if (!s)
-		s = "(null)";
-	for (i = 0; s[i]; ++i)
+	(void)f;
+	for (j = 0; s[j]; j++)
 	{
-		for (j = 0; alphabet[j]; ++j)
+		if (s[j] < 'A' || (s[j] > 'Z' && s[j] < 'a') || s[j] > 'z')
+			_putchar(s[j]);
+		else
 		{
-			if (alphabet[j] == s[i])
+			for (i = 0; i <= 52; i++)
 			{
-				_putchar(rAlphbet[j]);
-				break;
+				if (s[j] == rot13[i])
+					_putchar(ROT13[i]);
 			}
 		}
-		if (!alphabet[j])
-			_putchar(s[i]);
 	}
-	return (i);
+
+	return (j);
 }

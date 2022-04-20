@@ -2,12 +2,13 @@
 
 /**
  * _print_percent - Prints a percent
- * @ap: Action pointer
- *
- * Return: 1
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct flags in which we turn the flags on
+ * Return: number of char printed
  */
-int _print_percent(va_list ap __attribute__((unused)))
+int _print_percent(va_list l, flags_t *f)
 {
-	_putchar('%');
-	return (1);
+	(void)l;
+	(void)f;
+	return (_putchar('%'));
 }

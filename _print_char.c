@@ -2,13 +2,14 @@
 
 /**
  * _print_char - writes the character c to stdout
- * @ap: The character to print
+ * @l: The character to print
  *
  * Return: 1
  */
 
-int _print_char(va_list ap)
+int _print_char(va_list l, flags_t *f)
 {
-	_putchar(va_arg(ap, int));
+	(void)f;
+	_putchar(va_arg(l, int));
 	return (1);
 }

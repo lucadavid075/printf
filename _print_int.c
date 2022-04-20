@@ -2,34 +2,22 @@
 
 /**
  * _print_int - Prints an integer
- * @ap: Action pointer
- *
- * Return: Number of digits
+ * @l: va_list of arguments from _printf
+ * @f: pointer to the struct flags determining
+ * if a flag is passed to _printf
+ * Return: number of char printed
  */
-
-int _print_int(va_list ap)
+int _print_int(va_list l, flags_t *f)
 {
-	int i;
-	int count = 0;
-	int n = va_arg(ap, int);
+	int n = va_arg(l, int);
+	int res = count_digit(n);
 
-	if (n < 0)
-	{
-		count += _putchar('-');
-	}
-	for (i = 1000000000; i > 0; i /= 10)
-	{
-		if (n / i)
-		{
-			if ((n / i) % 10 < 0)
-				count += _putchar(-(n / i % 10) + '0');
-			else
-				count += _putchar((n / i % 10) + '0');
-		}
-		else if (n / i == 0 && i == 1)
-		{
-			count += _putchar(n / i % 10 + '0');
-		}
-	}
-	return (count);
+	if (f->space == 1 && f->plus == 0 && n >= 0)
+		res += _putchar(' ');
+	if (f->plus == 1 && n >= 0)
+		res += _putchar('+');
+	if (n <= 0)
+		res++;
+	print_number(n);
+	return (res);
 }

@@ -2,20 +2,19 @@
 
 /**
  * _print_string - function that prints a string
- * @ap: the string
+ * @l: the string
  *
  * Return: 1
  */
 
-int _print_string(va_list ap)
+int _print_string(va_list l, flags_t *f)
 {
-	int i = 0;
-	char *s;
+	char *s = va_arg(l, char *);
 
-	s = va_arg(ap, char *);
+	(void)f;
+
 	if (!s)
 		s = "(null)";
-	for (i = 0; s[i]; i++)
-		_putchar(s[i]);
-	return (i);
+	return (_puts(s));
 }
+
