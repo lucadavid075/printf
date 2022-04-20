@@ -21,7 +21,10 @@ int _printf(const char *format, ...)
 		{"X", _print_hex_u},
 		{"p", _print_address},
 		{"R", _print_rot13},
-		{"r", _print_reverse},{"+", _get_flags},{"#", _get_flags},{" ", _get_flags},
+		{"r", _print_reverse},
+		{"+", _get_flags},
+		{"#", _get_flags},
+		{" ", _get_flags},
 		{NULL, NULL}
 
 	};
