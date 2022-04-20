@@ -26,7 +26,6 @@ int (*get_print(char s))(va_list, flags_t *)
 		{'S', print_bigS},
 		{'p', _print_address},
 		{'%', _print_percent},
-		{NULL, NULL}
 		};
 	
 	register short i;
