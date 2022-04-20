@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
+#include <assert.h>
+#include <stdbool.h>
 
 
 /**
