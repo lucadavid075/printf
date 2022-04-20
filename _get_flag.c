@@ -11,7 +11,6 @@
 int get_flag(char s, flags_t *f)
 {
 	int i = 0;
-	int modifier = 1;
 
 	switch (s)
 	{
@@ -36,7 +35,6 @@ int get_flag(char s, flags_t *f)
 			i = 1;
 			break;
 		default:
-			modifier = 0;
 			i = 0;
 	}
 	return (i);
